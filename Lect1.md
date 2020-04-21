@@ -22,9 +22,9 @@
 import java.io.*;
 public class Test
 {
-	public static void main(String args[]) 
+    public static void main(String args[]) 
     {
-    	String Str = new String("Geeks-for-Geeks");
+        String Str = new String("Geeks-for-Geeks");
         
         // Split above string in at-most two strings
         for (String val: Str.split("-",2))
@@ -55,7 +55,7 @@ print(line.split('\n'))
 def magic(top):
     acc = []
     for entry in os.scandir(top):
-    	if entry.is_file() and entry.name.endwith(".py"):
+        if entry.is_file() and entry.name.endwith(".py"):
             acc.append(entry.path)
     return acc
 ```
@@ -97,7 +97,7 @@ print(f.__code__.co_code)
 ```Python
 import inspect
 def function(x, y - 10)
-	return x**2
+    return x**2
 val = inspect.getfullargspec(function)
 val1 = inspect.signature(function)
 print(f'{val}')
@@ -118,10 +118,10 @@ signature (x, y=10)
 ```Python
 import inspect
 def fun(x, y=10m *unnamed, par1=4, par2=3, **unnamed)->int:
-	for val in unnamed:
-    	print(f'unnamed value {val}')
+    for val in unnamed:
+        print(f'unnamed value {val}')
     for key, val in named.items():
-    	print(f'named value {key} = {val}')
+        print(f'named value {key} = {val}')
         
     return x+y
 print(inspect.getfullargspec(fun))
@@ -310,13 +310,13 @@ True
 
 ```Python
 if len(xs) == 0:    # Плохо
-	pass
+    pass
     
 if xs:
-	pass
+    pass
 
 if not xs:
-	pass
+    pass
 ```
 
 ---
@@ -537,7 +537,7 @@ True     :: some_str :: 00123
 >>> s = "Hallo!"
 >>> s[1] = "e"
 Traceback (most recent call last):
-	File "<stdin>", line 1, in <module>
+    File "<stdin>", line 1, in <module>
 TypeError: 'str' object does not support item assignment
 ```
 
@@ -567,7 +567,7 @@ TypeError: 'str' object does not support item assignment
 
 >>> date[1] = 2019
 Traceback (most recent call last):
-	File "<stdin>", line 1, in <module>
+    File "<stdin>", line 1, in <module>
 TypeError: 'tuple' object does bot support item assignment
 
 >>> xs = ([], []) 
@@ -576,7 +576,7 @@ TypeError: 'tuple' object does bot support item assignment
 ([1, 2, 3], [])
 
 >>> def div_mod(x, y):
-... 	return x // y, x % y    # Пример возвращения кортежа функцией. Реализация векторной функции векторного аргуменнта.
+...     return x // y, x % y    # Пример возвращения кортежа функцией. Реализация векторной функции векторного аргуменнта.
 
 >>> d, m = div_mod(10, 3)       # присваивание кортежем d = x // y, m = x % y
 >>> assert (d, m) == (3, 1)     # Ассерты для такой функции
@@ -654,7 +654,7 @@ False
 >>> xs = set()
 >>> xs.add([])
 Traceback (most recent call last):
-	File "<stdin>", line 1, in <module>
+    File "<stdin>", line 1, in <module>
 TypeError: unhashable type: 'list'
 ```
 
@@ -748,11 +748,11 @@ dict_items([('month', 'September'), ('day', 14)])
 
 ```Python
 if CONDIT1:       
-	expression1()    
+    expression1()    
 elif CONDIT2:
-	expression2()
+    expression2()
 else:
-	expression3()
+    expression3()
 ```
 
 ***ternary if***
@@ -768,23 +768,23 @@ value = x if x < y else y    # int value = (x < y)? x : y; ## На Си
 ```Python
 # Плохо :(((
 if x[0] < 100 and x[1] > 100 and (is_full_moon() or not it_thursday()) and user.is_admin
-	pass
+    pass
     
 # Это не работает! >:(((((
 if x[0] < 100 and x[1] > 100
-	and (is_full_moon() or not is_thursday())
+    and (is_full_moon() or not is_thursday())
     and user.is_admin:
     pass
     
 # Тоже плохо :(((
 if x[0] < 100 and x[1] > 100 \
-	and (is_full_moon() or not is_thursday()) \
+    and (is_full_moon() or not is_thursday()) \
     and user.is_admin:
     pass
     
 # Со скобочками чуть лучше :((
 if (x[0] < 100 and x[1] > 100
-	and (is_full_moon() or not is_thursday())
+    and (is_full_moon() or not is_thursday())
     and user.is_admin):
     pass
 ```
@@ -795,7 +795,7 @@ if (x[0] < 100 and x[1] > 100
 
 ```Python
 while CONDIT:
-	expression()
+    expression()
 ```
 
 ##### for #####
@@ -804,10 +804,10 @@ while CONDIT:
 
 ```Python
 for x in range(10):    # 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
-	print(x)
+    print(x)
     
 for ch in "Hello world":    # H, e, l, l,o, ' ', w, o, r, l, d 
-	print(ch)
+    print(ch)
 
 ```
 *Забегая вперед*  
@@ -820,11 +820,11 @@ for ch in "Hello world":    # H, e, l, l,o, ' ', w, o, r, l, d
 ```Python
 target = some_target
 for item in items:
-	if item == target:
-    	print("Found!", item)
+    if item == target:
+        print("Found!", item)
         break
 else:
-	print("Not found")    # Особый вариант, сработает только если был break
+    print("Not found")    # Особый вариант, сработает только если был break
 ```
 
 ##### continue #####
@@ -835,8 +835,8 @@ else:
 target = some_target
 res = []
 for item in items:
-	if item != target:
-    	continue
+    if item != target:
+        continue
     res.append(item )
 ```
 
