@@ -837,7 +837,7 @@ res = []
 for item in items:
 	if item != target:
     	continue
-    res.append(item)
+    res.append(item )
 ```
 
 
