@@ -42,9 +42,9 @@ public class Test
 *Python 3.x style*
 
 ```Python
-line = "Geek \nGeek2 \nGeek3";
-print line.split()
-print line.split(' ', 1)
+line = "Geek \nGeek2 \nGeek3"
+print(line.split())
+print(line.split('\n'))
 ```
 
 - Python легко читаемый
