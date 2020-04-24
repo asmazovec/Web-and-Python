@@ -22,9 +22,9 @@
 import java.io.*;
 public class Test
 {
-	public static void main(String args[]) 
+    public static void main(String args[]) 
     {
-    	String Str = new String("Geeks-for-Geeks");
+        String Str = new String("Geeks-for-Geeks");
         
         // Split above string in at-most two strings
         for (String val: Str.split("-",2))
@@ -42,9 +42,9 @@ public class Test
 *Python 3.x style*
 
 ```Python
-line = "Geek \nGeek2 \nGeek3";
-print line.split()
-print line.split(' ', 1)
+line = "Geek \nGeek2 \nGeek3"
+print(line.split())
+print(line.split('\n'))
 ```
 
 - Python легко читаемый
@@ -55,7 +55,7 @@ print line.split(' ', 1)
 def magic(top):
     acc = []
     for entry in os.scandir(top):
-    	if entry.is_file() and entry.name.endwith(".py"):
+        if entry.is_file() and entry.name.endwith(".py"):
             acc.append(entry.path)
     return acc
 ```
@@ -94,10 +94,10 @@ print(f.__code__.co_code)
 
 **1**
 
-```
+```Python
 import inspect
 def function(x, y - 10)
-	return x**2
+    return x**2
 val = inspect.getfullargspec(function)
 val1 = inspect.signature(function)
 print(f'{val}')
@@ -106,7 +106,7 @@ print(f'signature {val1}')
 
 *Результат*
 
-```
+```Python
 FullArgSpec(args=['x', 'y'], varargs=None, varkw=None, defaults=(10,), kwonlyargs=[], kwonlydefaults=None, annotation={})
 signature (x, y=10)
 ```
@@ -115,13 +115,13 @@ signature (x, y=10)
 
 **2**
 
-```
+```Python
 import inspect
 def fun(x, y=10m *unnamed, par1=4, par2=3, **unnamed)->int:
-	for val in unnamed:
-    	print(f'unnamed value {val}')
+    for val in unnamed:
+        print(f'unnamed value {val}')
     for key, val in named.items():
-    	print(f'named value {key} = {val}')
+        print(f'named value {key} = {val}')
         
     return x+y
 print(inspect.getfullargspec(fun))
@@ -130,7 +130,7 @@ print(fun(2, 2, 'ul', 1, 2, par1=2, par2=2, name1=1, name2='s'))
 
 *Результат*
 
-```
+```Python
 FullArgSpec(args=['x', 'y'], varargs='unnamed', varkw='named', defaults=(10,), kwonlyargs=['par1', 'par2'], kwonlydefaults={'par1': 4, 'par2': 3}, annotations={'return':<class 'int'>})
 unnamed value u1
 unnamed value 1
@@ -153,7 +153,7 @@ named value name2 = s
 
 *Примеры*
 
-```
+```Python
 >>> name "John" # type: str  #### Автоматическая аннотация
 >>> name: str; name = "John" #### Вручную в 2 команды
 >>> name: str = "John"       #### То же самое в 1 команду
@@ -167,7 +167,7 @@ named value name2 = s
 
 Различают типы `int`, `float`, `bool`, `str`, `complex`...
 
-```
+```Python
 >>> type(int)
 <class 'type'>
 
@@ -192,7 +192,7 @@ named value name2 = s
 
 Аналог NULL, но является полноценным объектом
 
-```
+```Python
 >>> res = print(None) # Любая функция принимая None вернет None
 None
 
@@ -217,13 +217,13 @@ True
 - операции алгебры логики `not`, `and`, `or` ..
 - операции сравнения `>`, `<`, `==`, `>=`, `<=` ..
 
-```
+```Python
 >>> to_be = False
 >>> to_be or not to_be    # Получается использовать слова вместо значков
 True
 ```
 
-```
+```Python
 >>> x = 1
 >>> y = 2
 >>> x**2 + y**2 < 5 == True    # True синглтон, не делайте так
@@ -236,7 +236,7 @@ False
 False
 ```
 
-```
+```Python
 >>> False and print('also')    # Short-circuiting!
 False
 
@@ -251,7 +251,7 @@ also
 
 *Операции*
 
-```
+```Python
 >>> flag = True
 >>> flag
 True
@@ -270,14 +270,14 @@ False
 
 Assert применяется для отлавливания багов, вызывая исключение, если какое-то условие было нарушено.
 
-```
+```Python
 def apply_discount(product, discount):
     price = int(product['цена'] * (1.0 - discount))
     assert 0 <= price <= product['цена']
     return price
 ```
 
-```
+```Python
 >>> apply_discount(shoes, 0.25)    # Все верно, скидка 25%
 11175
 >>> apply_discount(shoes, 2.0)     # Скидка в 200% вызовет ибку исполнения
@@ -291,7 +291,7 @@ AssertionError
 
 ***Truthy/Falsy***
 
-```
+```Python
 >>> bool(True)
 True
 
@@ -308,15 +308,15 @@ False
 True
 ```
 
-```
+```Python
 if len(xs) == 0:    # Плохо
-	pass
+    pass
     
 if xs:
-	pass
+    pass
 
 if not xs:
-	pass
+    pass
 ```
 
 ---
@@ -332,7 +332,7 @@ if not xs:
 
 *Обратить внимание!*
 
-```
+```Python
 >>> -3 // 2    # Как в алгебре!
 -2
 
@@ -342,7 +342,7 @@ if not xs:
 
 *Дополнительный синтаксис.*
 
-```
+```Python
 >>> x = 10
 >>> 0 <= x and x < 100
 True
@@ -366,7 +366,7 @@ True
 
 - наличие данного элемента `item in list`
 
-```
+```Python
 >>> 1 in [1, 2, 3]
 True
 ```
@@ -379,7 +379,7 @@ True
 
 *Обрарить внимание*
 
-```
+```Python
 >>> xs = [[0] * 3] * 3    # Не делайте так, продублируются ссылки на изначальный список
 >>> xs
 [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
@@ -389,7 +389,7 @@ True
 [[1, 0, 0], [1, 0, 0], [1, 0, 0]]
 ```
 
-```
+```Python
 >>> xs += [1]    # Не надо так делать
 >>> xs
 [92, 2, 3, 1]
@@ -405,7 +405,7 @@ True
 
 *Примеры*
 
-```
+```Python
 >>> xs
 [0, 1, 2, 3, 4]
 
@@ -427,7 +427,7 @@ True
 
 *Важная особенность*
 
-```
+```Python
 >>> new_list = old_list    # Ошибка! скопируется ссылка на old_list
 
 >>> new_list = old_list[:] # Это поэлементно скопирует список
@@ -447,7 +447,7 @@ False
 - умножение строк по аналогии со списком `str * 3` 
 - наличие подстроки в строке 'substr in str'
 
-```
+```Python
 >>> "Hello " + "world!"    # Конкатенация
 'Hello world!'
 
@@ -467,7 +467,7 @@ True
 - Явное приведение к типу `.str()`
 - Длина `.len()`
 
-```
+```Python
 >>> "Hello \nworld".splitlines()    # По строкам
 ['hello ', 'world']
 
@@ -484,19 +484,19 @@ True
 11
 ```
 
-**Форматиование строк**  
+**Форматирование строк**  
 `"%some_format" % (some_var)`
 
 - `%` - оператор форматирования
 
-```
+```Python
 >>> print("%d :: %s :: %d" % (flag, str, val))    # Выглядит почти по аналогии с Си
 1 :: some_str :: 123
 ```
 
 - можно модифицировать оператор фомата
 
-```
+```Python
 >>> print("%8s :: %s :: %05d" % (flag, str, val))
 True     :: some_str :: 00123
 ```
@@ -504,7 +504,7 @@ True     :: some_str :: 00123
 Дополнительный вариант форматирования строк - метод формат  
 `"{Номер значения 1} {Номер значения 2} ...".format(значения по порядку)`
 
-```
+```Python
 >>> s = "{} {} {}?".format("what", "is", "it")    # Автоматический порядок
 >>> s
 'what is it?'
@@ -522,7 +522,7 @@ True     :: some_str :: 00123
 
 *Красивый пример*
 
-```
+```Python
 >>> print("{0:^15}\n{1:^15}\n{2:^15}".format("*","*"*3,"*"*5))
        *       
       ***      
@@ -533,17 +533,17 @@ True     :: some_str :: 00123
 
 Во многом работа со строками похожа на работу со списками, но в отличии от списков, строки не изменяемы. 
 
-```
+```Python
 >>> s = "Hallo!"
 >>> s[1] = "e"
 Traceback (most recent call last):
-	File "<stdin>", line 1, in <module>
+    File "<stdin>", line 1, in <module>
 TypeError: 'str' object does not support item assignment
 ```
 
 Однако, это опять же можно обойти, используя слайсеры.
 
-```
+```Python
 >>> s = "Hallo!"
 >>> s = s[0] + 'e' + s[2:]
 >>> s
@@ -560,14 +560,14 @@ TypeError: 'str' object does not support item assignment
 - кортеж одного элемента `1` или `(1, )`,
 - скобки опциональны `date = "September", 2018`
 
-```
+```Python
 >>> date = ("September", 2018)
 >>> len(date)
 2
 
 >>> date[1] = 2019
 Traceback (most recent call last):
-	File "<stdin>", line 1, in <module>
+    File "<stdin>", line 1, in <module>
 TypeError: 'tuple' object does bot support item assignment
 
 >>> xs = ([], []) 
@@ -576,7 +576,7 @@ TypeError: 'tuple' object does bot support item assignment
 ([1, 2, 3], [])
 
 >>> def div_mod(x, y):
-... 	return x // y, x % y    # Пример возвращения кортежа функцией. Реализация векторной функции векторного аргуменнта.
+...     return x // y, x % y    # Пример возвращения кортежа функцией. Реализация векторной функции векторного аргуменнта.
 
 >>> d, m = div_mod(10, 3)       # присваивание кортежем d = x // y, m = x % y
 >>> assert (d, m) == (3, 1)     # Ассерты для такой функции
@@ -597,7 +597,7 @@ TypeError: 'tuple' object does bot support item assignment
 - наличие элемента во множестве `in`,
 - перегруженные операторы для метододов `|`, `&`, `^`
 
-```
+```Python
 >>> xs = {1, 2, 3}
 >>> 1 in xs
 True
@@ -614,7 +614,7 @@ False
 - исключающее или `^` или `.symmetric_difference`,
 - исключение элемента из множества `.discard()`.
 
-```
+```Python
 >>> xs = {1, 2, 3}
 >>> xs.add(1)     # Уже есть
 >>> xs.add(92)    
@@ -650,11 +650,11 @@ False
 
 *Нельзя добавить список во множество*
 
-```
+```Python
 >>> xs = set()
 >>> xs.add([])
 Traceback (most recent call last):
-	File "<stdin>", line 1, in <module>
+    File "<stdin>", line 1, in <module>
 TypeError: unhashable type: 'list'
 ```
 
@@ -669,7 +669,7 @@ TypeError: unhashable type: 'list'
 - взятие значения по ключу `dict[key]`,
 - присвоение по ключу `dict[key] = 14`.
 
-```
+```Python
 >>> date = {"year": 2018, "month": "September"}
 
 >>> len(date)    # Длина словаря
@@ -687,7 +687,7 @@ TypeError: unhashable type: 'list'
 
 - наличие ключа в словаре `in`.
 
-```
+```Python
 >>> 'day' in date.keys()    # Плохо!
 True
 
@@ -703,7 +703,7 @@ True
 - вывести все значения `.values()`,
 - вывести все и сразу `.items()`.
 
-```
+```Python
 >>> date.get("day", 14)    # Значение по умолчанию
 14
 
@@ -724,7 +724,7 @@ dict_items([('month', 'September'), ('day', 14)])
 
 Порядок элементов остается неизменнным и зависит только от времени присвоения ключу его первого значение. 
 
-```
+```Python
 >>> dict_ = {}
 >>> dict_["a"] = 1
 >>> dict_["b"] = 2
@@ -746,45 +746,45 @@ dict_items([('month', 'September'), ('day', 14)])
 
 ##### if #####
 
-```
+```Python
 if CONDIT1:       
-	expression1()    
+    expression1()    
 elif CONDIT2:
-	expression2()
+    expression2()
 else:
-	expression3()
+    expression3()
 ```
 
 ***ternary if***
 
 *return* **this()** `if` ***CONDIT1*** `else` **that()**
 
-```
+```Python
 value = x if x < y else y    # int value = (x < y)? x : y; ## На Си
 ```
 
 Не следует переносить условия на новую строку
 
-```
+```Python
 # Плохо :(((
 if x[0] < 100 and x[1] > 100 and (is_full_moon() or not it_thursday()) and user.is_admin
-	pass
+    pass
     
 # Это не работает! >:(((((
 if x[0] < 100 and x[1] > 100
-	and (is_full_moon() or not is_thursday())
+    and (is_full_moon() or not is_thursday())
     and user.is_admin:
     pass
     
 # Тоже плохо :(((
 if x[0] < 100 and x[1] > 100 \
-	and (is_full_moon() or not is_thursday()) \
+    and (is_full_moon() or not is_thursday()) \
     and user.is_admin:
     pass
     
 # Со скобочками чуть лучше :((
 if (x[0] < 100 and x[1] > 100
-	and (is_full_moon() or not is_thursday())
+    and (is_full_moon() or not is_thursday())
     and user.is_admin):
     pass
 ```
@@ -793,21 +793,21 @@ if (x[0] < 100 and x[1] > 100
 
 Цикл по условию.
 
-```
+```Python
 while CONDIT:
-	expression()
+    expression()
 ```
 
 ##### for #####
 
 `for` **var** `in` **list**`:` *expression*
 
-```
+```Python
 for x in range(10):    # 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
-	print(x)
+    print(x)
     
 for ch in "Hello world":    # H, e, l, l,o, ' ', w, o, r, l, d 
-	print(ch)
+    print(ch)
 
 ```
 *Забегая вперед*  
@@ -817,27 +817,27 @@ for ch in "Hello world":    # H, e, l, l,o, ' ', w, o, r, l, d
 
 Преждевременный принудительный выход из цикла
 
-```
+```Python
 target = some_target
 for item in items:
-	if item == target:
-    	print("Found!", item)
+    if item == target:
+        print("Found!", item)
         break
 else:
-	print("Not found")    # Особый вариант, сработает только если был break
+    print("Not found")    # Особый вариант, сработает только если был break
 ```
 
 ##### continue #####
 
 Принудительное завершение итерации цикла
 
-```
+```Python
 target = some_target
 res = []
 for item in items:
-	if item != target:
-    	continue
-    res.append(item)
+    if item != target:
+        continue
+    res.append(item )
 ```
 
 
