@@ -486,22 +486,179 @@ def foo():
 ```
 
 Создает список функций с обращением к enclosing для последнего значения и с дефолтным значением.
-Примерно то же самое с многомерными массивами и [[]*3]*3. | в первом случае для вложенной функции
+Примерно то же самое с многомерными массивами и `[[]*3]*3`. В первом случае для вложенной функции
 глобальна, соответственно для функции берется ее последнее принятое значение.
 
 ```Python
+# 1
 def foo():
     res = []
-    for i in range(3)
+    for i in range(3):
         def bar():
             return i
 
         res.append(bar)
     return res
+
+for f in foo():     
+    print(f(), end=" ") 
+
+==> 2 2 2
 ```
 
+```Python
+# 2
+def foo():
+    res = []
+    for i in range(3):
+        def bar(i=i):
+            return i
+
+        res.append(bar)
+    return res
+
+for f in foo():     
+    print(f(), end=" ") 
+
+==> 0 1 2
+```
+
+То же для `x`, при добавлении функций для каждой вложенной функции берется последнее присвоенное
+значение `x`.
+
+```
+def f():
+    x = 2
+    val = []
+    def f1():
+        return x
+    val.append(f1)
+    x = 9
+    def f1():
+        return x
+    val.append(f1)
+    return val
+z = f()
+
+for f in z:
+    print(f)
+    print(f())
+
+==> 
+<function f.<locals>.f1 at 0x7f2090499790>
+9
+<function f.<locals>.f1 at 0x7f2090499790>
+9
+```
+
+## Лямбда выражение ##
 
 
+Схема объявления и использования лямбда выражений
+
+```Python
+lambda arguments: expression    # Лямбда функция 
+
+def _(arguments):               # Ее аналог в виде именованной функции _()
+    return expression
+```
+
+*Пример описания лямбда выражения*
+
+```Python
+lambda a, *args, b=1, **kwargs: 92
+```
+
+### Функция высшего порядка map ###
+
+```Python
+>>> range(3)
+range(0, 3)
+
+>>> list(range(3))
+[0, 1, 2]
+
+>>> map(lambda x: x + 1, [0, 1, 2])
+<map object at 0x7fc54d060da0>
+
+>>> list(map(lambda x: x + 1, [0, 1, 2]))   # x соотносится и применяется лямбда функция
+[3, 5, 7]
+
+>>> list(map(lambda x: x + y, [0, 1, 2], [3, 4, 5, 6]))
+[3, 5, 7]
+```
+
+### Фильтрация по условию ###
+
+```Python
+>>> list(filter(lambda x: x % 2 == 0, range(10)))
+[0, 2, 4, 6, 8]
+
+>>> list(filter(None, [0, 1, True, False, [], {None}])) # Фильтрация без функции, убивает все
+Falsy элементы
+[1, True, {None}]
+```
+
+### Спаривание итерируемых объектов ###
+
+```Python
+>>> list(zip("hello", range(10)))
+[('h', 0), ('e', 1), ('l', 2), ('l', 3), ('o', 4)]
+```
+
+*Пример перебора упакованных вместе значений*
+
+```Python
+assert len(xs) == len(ys)
+for x, y in zip(xs, ys):
+    ...
+```
+
+---
+
+*Далее два примера с идентичным результатом, но первый понятнее и короче*
+
+```Python
+>>> [x**2 for x in range(10) if x % 2 == 0]
+[0, 4, 16, 36, 64]
+```
+
+```Python
+>>> list(map(
+            lambda x: x**2,
+            filter(lambda x: x % 2 == 0, range(10))
+            ))
+[0, 4, 16, 36, 64]
+```
+
+---
+
+*Аналогичный пример*
+
+```Python
+res = [
+    (x, y)
+    for x in range(5)
+    if x % 2 == 0
+    for y in range(x)
+    if y % 2 == 1
+]
+
+print(res)
+
+==> [(2, 1), (4, 1), (4, 3)]
+```
+
+```Python
+res = []
+for x in range(5):
+    if x % 2 == 0:
+        for y in range(x):
+            if y % 2 == 1:
+                res.append((x, y))
+
+print(res)
+```
 
 
 
