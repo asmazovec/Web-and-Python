@@ -824,7 +824,7 @@ for item in items:
         print("Found!", item)
         break
 else:
-    print("Not found")    # Особый вариант, сработает только если был break
+    print("Not found")    # Особый вариант, сработает только если не было принудительного выхода из цикла
 ```
 
 ##### continue #####
