@@ -118,8 +118,8 @@ List(2) >> positive_and_negative >> add_and_sub(3)  # Результатом с�
 def min(first, *rest):
     res = first
     for x in rest:
-        res = x if x < res else
-    retutrn res
+        res = x if x < res else res
+    return res
 
 >>> min("hello", ",", " ", "world")
 ' '
