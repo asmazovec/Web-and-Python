@@ -401,13 +401,7 @@ print (p_add2 (2, 5))
 вызове объекта.
 
 ## Partial. Сценарии. ##
-   ¿aBT;GG RTDGR=
-   • b) .) 1) 4) 9) 8c
-   • d>;B?e;B\ PE¿aBT;G^>G >;EEDW
-  • `D>G ;>WCE?WCE DG RG>R=
-  • ^aBT¿aBT;GG RDR=
- • 1
- • `D>G ;>WCE?WCE DG 
+
 ```Python
 from functools import partial
   ¿aBT;G^>G >;EEDWW
