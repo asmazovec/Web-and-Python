@@ -404,11 +404,6 @@ print (p_add2 (2, 5))
 
 ```Python
 from functools import partial
-  ¿aBT;G^>G >;EEDWW
-  • `D>G ;>WCE?WCE DG RG>R=
-  • ^aBT¿aBT;GG RDRR=
- • 1
- • `D>G ;>WCE?WCE DG 
 def add (x, y):
     return x + y
 
