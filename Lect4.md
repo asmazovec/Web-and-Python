@@ -195,4 +195,4 @@ plt.plot (x, yerr)
 plt.show ()
 ```
 
-![Результат]()
+![Результат](pic/Lect4-pic1.png)
